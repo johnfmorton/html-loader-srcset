@@ -13,7 +13,7 @@
   </a>
   <h1>HTML Loader srcset</h1>
   <p>Exports HTML as string. HTML is minimized when the compiler demands.<p>
-  <p>Variant of the html-loader module for Webpack with a patch to load srcset attribute(s) and actually produces valid tags</p>
+  <p><b>Variant of the html-loader module for Webpack with a patch to load srcset attribute(s) and actually produces valid tags</b></p>
 </div>
 
 <h2 align="center">Install</h2>

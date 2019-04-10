@@ -1,9 +1,9 @@
 {
-  "name": "html-srcsets-loader",
+  "name": "html-loader-srcset",
   "version": "0.5.5",
   "author": "Tobias Koppers @sokra",
   "license": "MIT",
-  "description": "Variant of the html loader module for webpack with a patch to load srcset attribute(s) that actually produces valid tags",
+  "description": "Variant of the html-loader module for Webpack with a patch to load srcset attribute(s) and actually produces valid tags",
   "main": "index.js",
   "files": [
     "lib"
@@ -32,9 +32,9 @@
     "should": "^10.0.0",
     "standard-version": "^4.3.0"
   },
-  "homepage": "https://github.com/patrickpissurno/html-srcset-loader",
+  "homepage": "https://github.com/patrickpissurno/html-loader-srcset",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/patrickpissurno/html-srcset-loader.git"
+    "url": "git+https://github.com/patrickpissurno/html-loader-srcset.git"
   }
 }
