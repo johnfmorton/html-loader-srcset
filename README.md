@@ -11,14 +11,15 @@
     <img width="200" height="200" vspace="" hspace="25"
       src="https://worldvectorlogo.com/logos/webpack.svg">
   </a>
-  <h1>HTML Loader</h1>
+  <h1>HTML Loader srcset</h1>
   <p>Exports HTML as string. HTML is minimized when the compiler demands.<p>
+  <p>Variant of the html-loader module for Webpack with a patch to load srcset attribute(s) and actually produces valid tags</p>
 </div>
 
 <h2 align="center">Install</h2>
 
 ```bash
-npm i -D html-loader
+npm i --save-dev html-loader-srcset
 ```
 
 <h2 align="center">Usage</h2>
@@ -42,7 +43,7 @@ If you use `<custom-elements>`, and lots of them make use of a `custom-src` attr
 {
   test: /\.(html)$/,
   use: {
-    loader: 'html-loader',
+    loader: 'html-loader-srcset',
     options: {
       attrs: [':data-src']
     }
@@ -76,28 +77,28 @@ With this configuration:
 ```
 
 ```js
-require("html-loader!./file.html");
+require("html-loader-srcset!./file.html");
 
 // => '<img src="http://cdn.example.com/49eba9f/a992ca.png"
 //         data-src="image2x.png">'
 ```
 
 ```js
-require("html-loader?attrs=img:data-src!./file.html");
+require("html-loader-srcset?attrs=img:data-src!./file.html");
 
 // => '<img src="image.png" data-src="data:image/png;base64,..." >'
 ```
 
 ```js
-require("html-loader?attrs=img:src img:data-src!./file.html");
-require("html-loader?attrs[]=img:src&attrs[]=img:data-src!./file.html");
+require("html-loader-srcset?attrs=img:src img:data-src!./file.html");
+require("html-loader-srcset?attrs[]=img:src&attrs[]=img:data-src!./file.html");
 
 // => '<img  src="http://cdn.example.com/49eba9f/a992ca.png"        
 //           data-src="data:image/png;base64,..." >'
 ```
 
 ```js
-require("html-loader?-attrs!./file.html");
+require("html-loader-srcset?-attrs!./file.html");
 
 // => '<img  src="image.jpg"  data-src="image2x.png" >'
 ```
@@ -116,7 +117,7 @@ module: {
   rules: [{
     test: /\.html$/,
     use: [ {
-      loader: 'html-loader',
+      loader: 'html-loader-srcset',
       options: {
         minimize: true
       }
@@ -148,7 +149,7 @@ module: {
   rules: [{
     test: /\.html$/,
     use: [ {
-      loader: 'html-loader',
+      loader: 'html-loader-srcset',
       options: {
         minimize: true,
         removeComments: false,
@@ -173,13 +174,13 @@ With the same configuration as above:
 ```
 
 ```js
-require("html-loader!./file.html");
+require("html-loader-srcset!./file.html");
 
 // => '<img  src="/image.jpg">'
 ```
 
 ```js
-require("html-loader?root=.!./file.html");
+require("html-loader-srcset?root=.!./file.html");
 
 // => '<img  src="http://cdn.example.com/49eba9f/a992ca.jpg">'
 ```
@@ -189,7 +190,7 @@ require("html-loader?root=.!./file.html");
 You can use `interpolate` flag to enable interpolation syntax for ES6 template strings, like so:
 
 ```js
-require("html-loader?interpolate!./file.html");
+require("html-loader-srcset?interpolate!./file.html");
 ```
 
 ```html
@@ -200,7 +201,7 @@ require("html-loader?interpolate!./file.html");
 And if you only want to use `require` in template and any other `${}` are not to be translated, you can set `interpolate` flag to `require`, like so:
 
 ```js
-require("html-loader?interpolate=require!./file.ftl");
+require("html-loader-srcset?interpolate=require!./file.ftl");
 ```
 
 ```html
@@ -235,7 +236,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: [ "html-loader" ]
+        use: [ "html-loader-srcset" ]
       }
     ]
   },
@@ -247,7 +248,7 @@ module.exports = {
 };
 ```
 
-If you need to define two different loader configs, you can also change the config's property name via `html-loader?config=otherHtmlLoaderConfig`:
+If you need to define two different loader configs, you can also change the config's property name via `html-loader-srcset?config=otherHtmlLoaderConfig`:
 
 ```js
 module.exports = {
@@ -256,7 +257,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: [ "html-loader?config=otherHtmlLoaderConfig" ]
+        use: [ "html-loader-srcset?config=otherHtmlLoaderConfig" ]
       }
     ]
   },
@@ -274,9 +275,9 @@ with a combination of 3 loaders:
 
 - [file-loader](https://github.com/webpack/file-loader)
 - [extract-loader](https://github.com/peerigon/extract-loader)
-- html-loader
+- html-loader-srcset
 
-The html-loader will parse the URLs, require the images and everything you
+The html-loader-srcset will parse the URLs, require the images and everything you
 expect. The extract loader will parse the javascript back into a proper html
 file, ensuring images are required and point to proper path, and the file loader
 will write the _.html_ file for you. Example:
@@ -284,7 +285,7 @@ will write the _.html_ file for you. Example:
 ```js
 {
   test: /\.html$/,
-  use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader'],
+  use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader-srcset'],
 }
 ```
 
@@ -346,11 +347,11 @@ will write the _.html_ file for you. Example:
 </table>
 
 
-[npm]: https://img.shields.io/npm/v/html-loader.svg
-[npm-url]: https://npmjs.com/package/html-loader
+[npm]: https://img.shields.io/npm/v/html-loader-srcset.svg
+[npm-url]: https://npmjs.com/package/html-loader-srcset
 
-[deps]: https://david-dm.org/webpack/html-loader.svg
-[deps-url]: https://david-dm.org/webpack/html-loader
+[deps]: https://david-dm.org/webpack/html-loader-srcset.svg
+[deps-url]: https://david-dm.org/webpack/html-loader-srcset
 
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
 [chat-url]: https://gitter.im/webpack/webpack

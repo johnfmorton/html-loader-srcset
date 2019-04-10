@@ -73,7 +73,7 @@ module.exports = function(content) {
 		content.push(x.substr(0, link.start));
 	});
 	content.reverse();
-	content = content.join("");
+	content = content.join(" ");
 
 	if (config.interpolate === 'require'){
 
