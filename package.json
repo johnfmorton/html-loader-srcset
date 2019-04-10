@@ -1,6 +1,6 @@
 {
   "name": "html-loader-srcset",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "author": "Tobias Koppers @sokra",
   "license": "MIT",
   "description": "Variant of the html-loader module for Webpack with a patch to load srcset attribute(s) and actually produces valid tags",
