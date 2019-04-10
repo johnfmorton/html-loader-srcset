@@ -26,7 +26,7 @@ function getLoaderConfig(context) {
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var config = getLoaderConfig(this);
-	var attributes = ["img:src", "img:srcset"];
+	var attributes = ["img:src", "img:srcset", "img:data-src", "img:data-srcset"];
 	if(config.attrs !== undefined) {
 		if(typeof config.attrs === "string")
 			attributes = config.attrs.split(" ");
