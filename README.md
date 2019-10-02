@@ -34,7 +34,7 @@ is converted to
 "<img src=\"" + require("./image.jpg") + "\" srcset=\"" + require("./image.jpg") + " 1x, " + require("./image@2x.jpg") + " 2x \">"
 ```
 
-You can specify which tag-attribute combination should be processed by this loader via the query parameter `attrs`. Pass an array or a space-separated list of `<tag>:<attribute>` combinations. (Default: `attrs=[img:src, img:srcset]`). The srcset-specific qualifiers such as `100w` or `3x` are supported in any processed attribute.
+You can specify which tag-attribute combination should be processed by this loader via the query parameter `attrs`. Pass an array or a space-separated list of `<tag>:<attribute>` combinations. (Default: `attrs=['img:src', 'img:srcset', 'img:data-src', 'img:data-srcset', 'source:srcset']`). The srcset-specific qualifiers such as `100w` or `3x` are supported in any processed attribute.
 
 If you use `<custom-elements>`, and lots of them make use of a `custom-src` attribute, you don't have to specify each combination `<tag>:<attribute>`: just specify an empty tag like `attrs=:custom-src` and it will match every element.
 
